@@ -39,9 +39,10 @@ repositories {
 }
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.jooq:joor-java-8:0.9.7")
-//    compileOnly(fileTree("${properties("androidStudioPath")}/plugins/android/lib/"))
- //   compileOnly(fileTree("${properties("androidStudioPath")}/lib"))
+    compileOnly(fileTree("${properties("androidStudioPath")}/plugins/android/lib/"))
+    compileOnly(fileTree("${properties("androidStudioPath")}/lib"))
     testImplementation("org.mockito.kotlin:mockito-kotlin:3.2.0")
     testImplementation("io.mockk:mockk:1.12.0")
 
@@ -53,12 +54,13 @@ dependencies {
 intellij {
     pluginName.set(properties("pluginName"))
 
-    version.set("191.8026.42")
+//    version.set("191.8026.42")
+    version.set("213.7172.25")
     type.set("IC")
-    type.set(properties("platformType"))
+//    type.set(properties("platformType"))
     downloadSources.set(properties("platformDownloadSources").toBoolean())
     updateSinceUntilBuild.set(false)
-   // localPath.set(properties("androidStudioPath"))
+//    localPath.set(properties("androidStudioPath"))
     // Plugin Dependencies. Uses `platformPlugins` property from the gradle.properties file.
     plugins.set(properties("platformPlugins").split(',').map(String::trim).filter(String::isNotEmpty))
 }

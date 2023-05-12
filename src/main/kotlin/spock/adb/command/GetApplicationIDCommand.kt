@@ -2,6 +2,7 @@ package spock.adb.command
 
 import com.android.ddmlib.IDevice
 import com.android.tools.idea.gradle.project.model.AndroidModuleModel
+import com.android.tools.idea.model.AndroidModel
 import com.intellij.openapi.project.Project
 import org.jetbrains.android.util.AndroidUtils
 
@@ -10,7 +11,7 @@ class GetApplicationIDCommand : Command<Any, String?> {
         return AndroidUtils.getApplicationFacets(project)
             .getOrNull(0)
                 ?.let {
-                    AndroidModuleModel
-                    .get(it)?.applicationId }
+                    AndroidModel.get(it)?.applicationId
+                }
     }
     }
